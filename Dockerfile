@@ -1,10 +1,9 @@
 ### BASE IMAGE
-FROM node:20-bullseye-slim AS base
+FROM node:18-alpine AS base
 
-RUN apt update -y
-RUN apt upgrade -y
+
 RUN apt install -y git
-RUN npm install -g npm
+
 
 ### BUILD IMAGE
 FROM base AS builder
@@ -16,8 +15,8 @@ COPY package.json /codechat/
 RUN npm install
 
 COPY tsconfig.json /codechat/
-COPY src /codechat/src
-COPY public /codechat/public
+COPY src/ /codechat/src
+COPY public/ /codechat/public
 
 RUN npm run build
 
