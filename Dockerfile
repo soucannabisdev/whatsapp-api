@@ -13,7 +13,7 @@ WORKDIR /codechat
 
 COPY package.json /codechat/
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY tsconfig.json /codechat/
 COPY src/ /codechat/src
