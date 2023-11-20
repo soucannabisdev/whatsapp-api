@@ -35,8 +35,8 @@ LABEL contact="contato@codechat.dev" whatsapp="https://chat.whatsapp.com/HyO8X8K
 COPY --from=builder /codechat/dist .
 
 COPY tsconfig.json /codechat/
-COPY src /codechat//src
-COPY public /codechat//public
+COPY src /codechat/src
+COPY public /codechat/public
 RUN mkdir instances
 
 ENV DOCKER_ENV=true
@@ -100,7 +100,7 @@ ENV AUTHENTICATION_API_KEY='t8OOEeISKzpmc3jjcMqBWYSaJsafdefer'
 ENV AUTHENTICATION_JWT_EXPIRIN_IN=0
 ENV AUTHENTICATION_JWT_SECRET='3RFYiiRmvNiokSBrLZzx'
 
-EXPOSE 80
+EXPOSE 8083
 
 # All settings must be in the env.yml file, passed as a volume to the container
 
