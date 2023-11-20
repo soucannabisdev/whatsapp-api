@@ -45,7 +45,7 @@ import { load } from 'js-yaml';
 import { isBooleanString } from 'class-validator';
 import { join } from 'path';
 
-export type HttpServer = { TYPE: 'http' | 'https'; PORT: number };
+export type HttpServer = { TYPE: 'http' | 'https'; PORT: string };
 
 export type HttpMethods = 'POST' | 'GET' | 'PUT' | 'DELETE';
 export type Cors = {
