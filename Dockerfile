@@ -11,15 +11,6 @@ FROM base AS builder
 
 WORKDIR /codechat
 
-COPY package.json /codechat/
-
-RUN npm install --legacy-peer-deps
-
-### BUILD IMAGE
-FROM base AS builder
-
-WORKDIR /codechat
-
 COPY ./package.json .
 
 RUN npm install
@@ -27,7 +18,6 @@ RUN npm install
 COPY ./tsconfig.json .
 COPY ./src ./src
 COPY ./public ./public
-
 RUN npm run build
 
 ### RELEASE IMAGE
