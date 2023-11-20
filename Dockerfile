@@ -1,9 +1,10 @@
 ### BASE IMAGE
 FROM node:18-alpine AS base
 
-
+RUN apt update -y
+RUN apt upgrade -y
 RUN apt install -y git
-
+RUN npm install -g npm
 
 ### BUILD IMAGE
 FROM base AS builder
