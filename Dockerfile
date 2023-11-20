@@ -1,5 +1,5 @@
 ### BASE IMAGE
-FROM node:18-alpine AS base
+FROM node:20-bullseye-slim AS base
 
 RUN apt update -y
 RUN apt upgrade -y
