@@ -11,13 +11,13 @@ FROM base AS builder
 
 WORKDIR /codechat
 
-COPY ./package.json .
+COPY package.json /codechat/
 
 RUN npm install
 
-COPY ./tsconfig.json .
-COPY ./src ./src
-COPY ./public ./public
+COPY tsconfig.json /codechat/
+COPY src /codechat/src
+COPY public /codechat/public
 
 RUN npm run build
 
@@ -34,9 +34,9 @@ LABEL contact="contato@codechat.dev" whatsapp="https://chat.whatsapp.com/HyO8X8K
 
 COPY --from=builder /codechat/dist .
 
-COPY ./tsconfig.json .
-COPY ./src ./src
-COPY ./public ./public
+COPY tsconfig.json /codechat/
+COPY src /codechat//src
+COPY public /codechat//public
 RUN mkdir instances
 
 ENV DOCKER_ENV=true
