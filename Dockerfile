@@ -99,8 +99,6 @@ ENV AUTHENTICATION_API_KEY='t8OOEeISKzpmc3jjcMqBWYSaJsafdefer'
 ENV AUTHENTICATION_JWT_EXPIRIN_IN=0
 ENV AUTHENTICATION_JWT_SECRET='3RFYiiRmvNiokSBrLZzx'
 
-EXPOSE process.env.PORT
-
 # All settings must be in the env.yml file, passed as a volume to the container
 
 CMD [ "node", "./src/main.js" ]
