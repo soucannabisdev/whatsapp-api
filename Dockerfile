@@ -4,7 +4,7 @@ FROM node:20-bullseye-slim AS base
 RUN apt update -y
 RUN apt upgrade -y
 RUN apt install -y git
-RUN npm install -g npm  --legacy-peer-deps
+RUN npm install -g npm 
 
 ### BUILD IMAGE
 FROM base AS builder
