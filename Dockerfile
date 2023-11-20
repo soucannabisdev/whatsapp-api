@@ -26,7 +26,7 @@ FROM base AS release
 
 WORKDIR /codechat
 COPY --from=builder /codechat/package*.json .
-RUN npm ci --omit=dev
+RUN npm ci --omit=dev  --legacy-peer-deps
 
 LABEL version="1.2.8" description="Api to control whatsapp features through http requests." 
 LABEL maintainer="Cleber Wilson" git="https://github.com/jrCleber"
