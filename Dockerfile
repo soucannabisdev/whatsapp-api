@@ -1,10 +1,9 @@
 ### BASE IMAGE
 FROM node:18-alpine AS base
 
-RUN apt update -y
-RUN apt upgrade -y
-RUN apt install -y git
-RUN npm install -g npm 
+RUN apk update && apk upgrade && \
+    apk add --no-cache git && \
+    npm install -g npm
 
 ### BUILD IMAGE
 FROM base AS builder
@@ -25,7 +24,7 @@ FROM base AS release
 
 WORKDIR /codechat
 COPY --from=builder /codechat/package*.json .
-RUN npm ci --omit=dev  --legacy-peer-deps
+RUN npm ci --omit=dev --legacy-peer-deps
 
 LABEL version="1.2.8" description="Api to control whatsapp features through http requests." 
 LABEL maintainer="Cleber Wilson" git="https://github.com/jrCleber"
